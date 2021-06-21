@@ -14,6 +14,7 @@ public class OnlyThreeTypes{
         OnlyThreeTypes example = new OnlyThreeTypes();
         example.presentProgramPart1();
         example.presentProgramPart2();
+        example.presentProgramPart3();
     }
 
     private void presentProgramPart1() {
@@ -45,10 +46,8 @@ public class OnlyThreeTypes{
         startSpeedometer = System.nanoTime();
         System.out.println(Arrays.binarySearch(integerCopiedArray, maxRandomValue));
         printTime("(Бинарный поиск в массиве через binarySearch() от Arrays)");
-    }
 
-
-    //TODO Наработки универсального метода
+        //TODO Наработки универсального метода
 /*    integerArray = (Integer[]) inflateArray(10).toArray();
     private <fillers> List<fillers> inflateArray(int size) {
         List<fillers> newArray = new ArrayList<>(size);
@@ -70,6 +69,7 @@ public class OnlyThreeTypes{
 //        this.currentSpeed = System.nanoTime();
 //        System.out.printf(" (Время выполнения %d нс)%n", printTime());
 //    }
+    }
 
     private void presentProgramPart2() {
         sizeArray = 25;
@@ -91,6 +91,17 @@ public class OnlyThreeTypes{
                 " – получен индекс сопадающиего элемента в массиве ('-1' при отсутствии" +
                 " совпадений)." + " Элемент сравнения " + keyForSearching);
         printTime("(Бинарный поиск)");
+    }
+
+    private void presentProgramPart3() {
+        sizeArray = 400;
+        maxRandomValue = 100;
+        keyForSearching = 67;
+        Integer[] integerArray = new Integer[sizeArray];
+        initIntegerArray(integerArray);
+
+        System.out.println("\nЧасть третья. Пункты задания 2.3, 2.4");
+        sortArray(integerArray, "(Массив отсортирован)");
     }
 
     private Integer linearSearch(Integer[] integerArray) {
@@ -164,9 +175,9 @@ public class OnlyThreeTypes{
 ✓ Оценить алгоритмы линейного и двоичного поиска с помощью базового класса System.nanoTime(), при необходимости расширьте
  уже существующий массив данных.
 
-- 2.3 Создайте массив размером 400 элементов.
-- Выполните сортировку с помощью метода sort().
-- Оцените сортировку с помощью базового класса System.nanoTime().
+✓ 2.3 Создайте массив размером 400 элементов.
+✓ Выполните сортировку с помощью метода sort().
+✓ Оцените сортировку с помощью базового класса System.nanoTime().
 - 2.4 На основе существующего массива данных из задания 2.3 реализуйте алгоритм сортировки пузырьком.
 - Оцените сортировку с помощью базового класса System.nanoTime().
 - Сравните время выполнения алгоритмы сортировки методом sort() из задания 2.1 и сортировку пузырьком.
