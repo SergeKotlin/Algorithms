@@ -99,9 +99,18 @@ public class OnlyThreeTypes{
         keyForSearching = 67;
         Integer[] integerArray = new Integer[sizeArray];
         initIntegerArray(integerArray);
+        Integer[] copyIntegerArray = Arrays.copyOf(integerArray, integerArray.length);
 
         System.out.println("\nЧасть третья. Пункты задания 2.3, 2.4");
-        sortArray(integerArray, "(Массив отсортирован)");
+        System.out.println(Arrays.toString(integerArray));
+        sortArray(integerArray, "(Массив отсортирован с помощью Arrays.sort())");
+        startSpeedometer = System.nanoTime();
+        System.out.println();
+        System.out.println(Arrays.toString(copyIntegerArray));
+        bubbleSort(copyIntegerArray);
+        printTime("(Сортировка пузырьком)");
+        System.out.println(Arrays.toString(copyIntegerArray));
+
     }
 
     private Integer linearSearch(Integer[] integerArray) {
@@ -129,6 +138,24 @@ public class OnlyThreeTypes{
                 startArr = middleOfArr + 1;
             } else if (midItem > keyForSearching) {
                 endArr = middleOfArr - 1;
+            }
+        }
+        return -1;
+    }
+
+    private Integer bubbleSort(Integer[] array) {
+        boolean isSorted = false;
+        int sortBuffer;
+
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < array.length-1; i++) {
+                if (array[i] > array[i+1]) {
+                    isSorted = false;
+                    sortBuffer = array[i];
+                    array[i] = array[i+1];
+                    array[i+1] = sortBuffer;
+                }
             }
         }
         return -1;
@@ -178,9 +205,9 @@ public class OnlyThreeTypes{
 ✓ 2.3 Создайте массив размером 400 элементов.
 ✓ Выполните сортировку с помощью метода sort().
 ✓ Оцените сортировку с помощью базового класса System.nanoTime().
-- 2.4 На основе существующего массива данных из задания 2.3 реализуйте алгоритм сортировки пузырьком.
-- Оцените сортировку с помощью базового класса System.nanoTime().
-- Сравните время выполнения алгоритмы сортировки методом sort() из задания 2.1 и сортировку пузырьком.
+✓ 2.4 На основе существующего массива данных из задания 2.3 реализуйте алгоритм сортировки пузырьком.
+✓ Оцените сортировку с помощью базового класса System.nanoTime().
+✓ Сравните время выполнения алгоритмы сортировки методом sort() из задания 2.1 и сортировку пузырьком.
 - 2.5 На основе массива данных из задания 2.3 реализуйте алгоритм сортировки методом выбора.
 - Оцените сортировку с помощью базового класса System.nanoTime().
 - Сравните со временем выполнения алгоритмов сортировки из прошлых заданий 2.3 и 2.4.
